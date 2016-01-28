@@ -8,6 +8,7 @@ public class Solver
     protected static String[][] startValue = new String[4][4];
     protected static String[][] endValue = new String[4][4];
     protected static String[][] stepValue = new String[4][4];
+    protected static Tree myDataTree;
     
     public static void main(String[] args)
     {
@@ -17,12 +18,15 @@ public class Solver
         //getEnd();
 
         //Optional if I just want to set them manually internally
-        //setStart();
-        //setEnd();
+        setStart();
+        setEnd();
 
         //We do this no matter what
         //copyArrayOfSameSize(startValue, stepValue);
 
+        myDataTree = new Tree(startValue);
+
+        treeTest(myDataTree);
 
         //Testing the Queue to make sure it throws errors properly
         //queueTest();
@@ -30,6 +34,34 @@ public class Solver
         //For debugging
         //print2DArray(startValue, "Starting Array");
         //print2DArray(stepValue, "Stepping Array");
+    }
+
+    private static void treeTest(Tree testTree)
+    {
+        System.out.println(testTree);
+    }
+
+    protected void rotateRowOnceLeft(String[][] data, int row)
+    {
+        String tempVal = data[row][3];
+        data[row][3] = data[row][2];
+        data[row][2] = data[row][1];
+        data[row][1] = data[row][0];
+        data[row][0] = tempVal;
+    }
+
+    protected void rotateColumnOnceUp(String[][] data, int column)
+    {
+        String tempVal = data[3][column];
+        data[3][column] = data[2][column];
+        data[2][column] = data[1][column];
+        data[1][column] = data[0][column];
+        data[0][column] = tempVal;
+    }
+
+    protected void addValidMoves(Tree currentStep)
+    {
+
     }
 
 
@@ -65,48 +97,48 @@ public class Solver
 
     private static void setStart()
     {
-        startValue[0][0] = "";
-        startValue[0][1] = "";
-        startValue[0][2] = "";
-        startValue[0][3] = "";
+        startValue[0][0] = "B";
+        startValue[0][1] = "W";
+        startValue[0][2] = "W";
+        startValue[0][3] = "W";
 
-        startValue[1][0] = "";
-        startValue[1][1] = "";
-        startValue[1][2] = "";
-        startValue[1][3] = "";
+        startValue[1][0] = "W";
+        startValue[1][1] = "W";
+        startValue[1][2] = "W";
+        startValue[1][3] = "W";
 
-        startValue[2][0] = "";
-        startValue[2][1] = "";
-        startValue[2][2] = "";
-        startValue[2][3] = "";
+        startValue[2][0] = "W";
+        startValue[2][1] = "W";
+        startValue[2][2] = "W";
+        startValue[2][3] = "W";
 
-        startValue[3][0] = "";
-        startValue[3][1] = "";
-        startValue[3][2] = "";
-        startValue[3][3] = "";
+        startValue[3][0] = "W";
+        startValue[3][1] = "W";
+        startValue[3][2] = "W";
+        startValue[3][3] = "W";
     }
 
-    private void setEnd()
+    private static void setEnd()
     {
-        endValue[0][0] = "";
-        endValue[0][1] = "";
-        endValue[0][2] = "";
-        endValue[0][3] = "";
+        endValue[0][0] = "W";
+        endValue[0][1] = "W";
+        endValue[0][2] = "W";
+        endValue[0][3] = "B";
 
-        endValue[1][0] = "";
-        endValue[1][1] = "";
-        endValue[1][2] = "";
-        endValue[1][3] = "";
+        endValue[1][0] = "W";
+        endValue[1][1] = "W";
+        endValue[1][2] = "W";
+        endValue[1][3] = "W";
 
-        endValue[2][0] = "";
-        endValue[2][1] = "";
-        endValue[2][2] = "";
-        endValue[2][3] = "";
+        endValue[2][0] = "W";
+        endValue[2][1] = "W";
+        endValue[2][2] = "W";
+        endValue[2][3] = "W";
 
-        endValue[3][0] = "";
-        endValue[3][1] = "";
-        endValue[3][2] = "";
-        endValue[3][3] = "";
+        endValue[3][0] = "W";
+        endValue[3][1] = "W";
+        endValue[3][2] = "W";
+        endValue[3][3] = "W";
     }
 
     private static void getStart()

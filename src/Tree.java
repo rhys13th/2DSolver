@@ -33,7 +33,7 @@ import java.util.List;
 public class Tree
 {
     //This is our data
-    protected String[][] myValue;
+    protected String[][] myValue = new String[4][4];
     //And here are our roots. It's hypothetically infinite, but practically less (16)
     protected List<Tree> myRoots;
     //To keep track of how many roots we have. This is the same as myRoots.size(), but enumerated as a
@@ -125,5 +125,22 @@ public class Tree
         }
         //If all the values matched (the return false was never reached) obviousdly they're the same array
         return true;
+    }
+
+    public String toString()
+    {
+        String retVal = "";
+        //Starting at the first row, until the end of it
+        for (int i = 0; i < myValue.length; i++)
+        {
+            //For every single column in there
+            for (int j = 0; j < myValue[i].length; j++)
+            {
+                retVal += (myValue[i][j] + ", ");
+            }
+            retVal += "\n";
+        }
+
+        return retVal;
     }
 }
