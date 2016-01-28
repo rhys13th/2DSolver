@@ -82,7 +82,7 @@ public class Solver
 
     //Our rotation for a row. It doesn't matter if you rotate right or left, as long as there's no additional
     //repetitions inside the overall tree
-    protected void rotateRowOnceRight(String[][] data, int row)
+    protected static void rotateRowOnceRight(String[][] data, int row)
     {
         //Start by copying our 4th cell's value
         String tempVal = data[row][3];
@@ -97,7 +97,7 @@ public class Solver
     }
 
     //Rotating a column
-    protected void rotateColumnOnceDown(String[][] data, int column)
+    protected static void rotateColumnOnceDown(String[][] data, int column)
     {
         //Start by storing the bottom most value into a temp storage
         String tempVal = data[3][column];
@@ -111,15 +111,55 @@ public class Solver
         data[0][column] = tempVal;
     }
 
-    //TODO: Create this
+    //Adds all the valid moves given a tree's current node
+    //A move is considered valid if it is unique, AKA it hasn't been made anywhere else before
     protected static void addValidMoves(Tree currentStep)
     {
-        do
+        //First thing we do is re-write our step value to the current root's data
+        copyArrayOfSameSize(currentStep.getMyValue(), stepValue);
+        //Then, for every column from 0-3
+        for(int i = 0; i < 4; i++)
         {
-            System.out.println("Hello world");
-            //myDataTree.add(endValue);
+            //We do this 3 times, returning stepValue to its original state at the end of the loop
+            for(int j = 1; j < 4; j++)
+            {
+                //We rotate the column
+                rotateColumnOnceDown(stepValue, i);
+                //And if it doesn't exist yet in the entire data tree, it's a valid move
+                if(!myDataTree.recursiveContains(stepValue))
+                {
+                    //So we add it
+                    currentStep.add(stepValue);
+                }
+            }
+            //This is the 4th rotation, which returns it to its original state. Since this is the orignal state
+            // we don't need to check if it's in the data tree, because we already know it is, as the root
+            rotateColumnOnceDown(stepValue, i);
         }
-        while(myDataTree.recursiveContains(endValue));
+
+        //Now our step value hasn't changed (rotating a column 4 times = same position as starting
+        for(int i = 0; i < 4; i++)
+        {
+            //So we just do the same thing as before
+            for(int j = 1; j < 4; j++)
+            {
+                //Only this time we rotate the rows, instead of columns
+                rotateRowOnceRight(stepValue, i);
+                //Again, we only add unique values
+                if(!myDataTree.recursiveContains(stepValue))
+                {
+                    //Adding it to the tree
+                    currentStep.add(stepValue);
+                }
+            }
+            //And returning our row back to the original starting point
+            rotateRowOnceRight(stepValue, i);
+        }
+    }
+
+    //TODO: Implement this
+    protected static void printSolution()
+    {
 
     }
 

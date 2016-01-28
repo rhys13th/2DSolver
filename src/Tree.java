@@ -36,7 +36,7 @@ public class Tree
     //This is our data
     protected String[][] myValue = new String[4][4];
     //And here are our roots. It's hypothetically infinite, but practically less (16)
-    protected LinkedList<Tree> myRoots = new LinkedList<Tree>();
+    protected LinkedList<Tree> myRoots = new LinkedList<>();
     //To keep track of how many roots we have. This is the same as myRoots.size(), but enumerated as a
     //seperate value for my sake
     protected int numberOfRoots = 0;
@@ -161,5 +161,17 @@ public class Tree
         }
         //Otherwise, just return the index. We don't really have a need for validation for other negative numbers
         return myRoots.get(index);
+    }
+
+    public String[][] getMyValue()
+    {
+        String[][] retVal = new String[4][4];
+        copyArrayOfSameSize(myValue, retVal);
+        return retVal;
+    }
+
+    public void setMyValue(String[][] newData)
+    {
+        copyArrayOfSameSize(newData, myValue);
     }
 }
