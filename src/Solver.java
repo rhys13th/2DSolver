@@ -22,11 +22,14 @@ public class Solver
         setEnd();
 
         //We do this no matter what
-        //copyArrayOfSameSize(startValue, stepValue);
+        copyArrayOfSameSize(startValue, stepValue);
 
         myDataTree = new Tree(startValue);
 
-        treeTest(myDataTree);
+        addValidMoves(myDataTree);
+
+        //For testing our Tree's functions
+        //treeTest(myDataTree);
 
         //Testing the Queue to make sure it throws errors properly
         //queueTest();
@@ -36,35 +39,91 @@ public class Solver
         //print2DArray(stepValue, "Stepping Array");
     }
 
+    //Our tree tests
     private static void treeTest(Tree testTree)
     {
+        //Testing toString
         System.out.println(testTree);
+
+        //Populating our tree with roots and subroots
+        //Ten subroots for our Starting Root
+        testTree.add(startValue);
+        testTree.add(startValue);
+        testTree.add(startValue);
+        testTree.add(startValue);
+        testTree.add(startValue);
+        testTree.add(startValue);
+        testTree.add(startValue);
+        testTree.add(startValue);
+        testTree.add(startValue);
+        testTree.add(startValue);
+        //Three subroots for node 0
+        testTree.getRoot(0).add(startValue);
+        testTree.getRoot(0).add(startValue);
+        testTree.getRoot(0).add(startValue);
+        //5 subroots for node 1
+        testTree.getRoot(1).add(startValue);
+        testTree.getRoot(1).add(startValue);
+        testTree.getRoot(1).add(startValue);
+        testTree.getRoot(1).add(startValue);
+        testTree.getRoot(1).add(startValue);
+        //4 subroots for node 2
+        testTree.getRoot(2).add(startValue);
+        testTree.getRoot(2).add(startValue);
+        testTree.getRoot(2).add(startValue);
+        testTree.getRoot(9).add(startValue);
+        //One subroot for Node 2, Subroot 0
+        testTree.getRoot(9).getRoot(0).add(endValue);
+
+        //Testing our recursiveSearch
+        System.out.println(testTree.recursiveContains(startValue));
+        System.out.println(testTree.recursiveContains(endValue));
     }
 
-    protected void rotateRowOnceLeft(String[][] data, int row)
+    //Our rotation for a row. It doesn't matter if you rotate right or left, as long as there's no additional
+    //repetitions inside the overall tree
+    protected void rotateRowOnceRight(String[][] data, int row)
     {
+        //Start by copying our 4th cell's value
         String tempVal = data[row][3];
+        //Rotate our 3rd cell into the 4th cell
         data[row][3] = data[row][2];
+        //Rotate our 2nd cell into our 3rd cell (already stored elsewhere)
         data[row][2] = data[row][1];
+        //Rotate our 1st cell into our 2nd cell (already stored elsewhere)
         data[row][1] = data[row][0];
+        //And now we can re-write our 4th cell into our 1st cell
         data[row][0] = tempVal;
     }
 
-    protected void rotateColumnOnceUp(String[][] data, int column)
+    //Rotating a column
+    protected void rotateColumnOnceDown(String[][] data, int column)
     {
+        //Start by storing the bottom most value into a temp storage
         String tempVal = data[3][column];
+        //Now we put our 3rd cell into the bottom
         data[3][column] = data[2][column];
+        //And our 2nd cell into our 3rd
         data[2][column] = data[1][column];
+        //and the 1st cell into the 2nd
         data[1][column] = data[0][column];
+        //And the topmost cell is now what was the bottom
         data[0][column] = tempVal;
     }
 
-    protected void addValidMoves(Tree currentStep)
+    //TODO: Create this
+    protected static void addValidMoves(Tree currentStep)
     {
+        do
+        {
+            System.out.println("Hello world");
+            //myDataTree.add(endValue);
+        }
+        while(myDataTree.recursiveContains(endValue));
 
     }
 
-
+    //Expanded tester of queue function & its exceptions
     private static void queueTest()
     {
         //First, we make a new Queue

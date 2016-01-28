@@ -1,4 +1,5 @@
 //Java.util.list is used for internal storage of the roots
+import java.util.LinkedList;
 import java.util.List;
 
 /**  CLASS: Tree
@@ -35,7 +36,7 @@ public class Tree
     //This is our data
     protected String[][] myValue = new String[4][4];
     //And here are our roots. It's hypothetically infinite, but practically less (16)
-    protected List<Tree> myRoots;
+    protected LinkedList<Tree> myRoots = new LinkedList<Tree>();
     //To keep track of how many roots we have. This is the same as myRoots.size(), but enumerated as a
     //seperate value for my sake
     protected int numberOfRoots = 0;
@@ -127,8 +128,11 @@ public class Tree
         return true;
     }
 
+    @Override
+    //Our toString method
     public String toString()
     {
+        //Initializing it so we can just add to it directly
         String retVal = "";
         //Starting at the first row, until the end of it
         for (int i = 0; i < myValue.length; i++)
@@ -136,11 +140,26 @@ public class Tree
             //For every single column in there
             for (int j = 0; j < myValue[i].length; j++)
             {
+                //Add it to our return value. Note: This will put a comma at the end of it, but eh ¯\_(ツ)_/¯
                 retVal += (myValue[i][j] + ", ");
             }
+            //At the end of the row, we create a new line for the next row
             retVal += "\n";
         }
-
+        //And now we return our string
         return retVal;
+    }
+
+    //Fairly simple, a way to get the root of whatever we want
+    public Tree getRoot(int index)
+    {
+        //If the index is greater than our size or is our custom flag of -1
+        if(index > myRoots.size() || index == -1)
+        {
+            //Just return the last thing we have in there
+            return myRoots.get(myRoots.size());
+        }
+        //Otherwise, just return the index. We don't really have a need for validation for other negative numbers
+        return myRoots.get(index);
     }
 }
