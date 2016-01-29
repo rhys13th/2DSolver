@@ -1,4 +1,5 @@
 //Java.util.list is used for internal storage of the roots
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,6 +41,8 @@ public class Tree
     //To keep track of how many roots we have. This is the same as myRoots.size(), but enumerated as a
     //seperate value for my sake
     protected int numberOfRoots = 0;
+
+    Queue printRootsInOrder = new Queue();
 
     //Constructor, initializes the data of myValue
     public Tree(String[][] initVal)
@@ -173,5 +176,29 @@ public class Tree
     public void setMyValue(String[][] newData)
     {
         copyArrayOfSameSize(newData, myValue);
+    }
+
+    public void printAllRootsToLeafPaths(Tree myData, ArrayList<Tree> path)
+    {
+        if(myData.getMyValue() != null)
+        {
+            path.add(myData);
+            if(myData.numberOfRoots > 0)
+            {
+                for(int i = 0; i < myData.numberOfRoots; i++)
+                {
+                    printAllRootsToLeafPaths(myData.getRoot(i), path);
+                }
+            }
+            else
+            {
+                for(int i=0;i< path.size();i++)
+                {
+                    System.out.print(path.get(i).toString());
+                }
+                System.out.println("\n");
+            }
+            path.remove(myData);
+        }
     }
 }

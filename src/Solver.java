@@ -24,9 +24,14 @@ public class Solver
         //We do this no matter what
         copyArrayOfSameSize(startValue, stepValue);
 
+        //Initializing our data tree
         myDataTree = new Tree(startValue);
 
-        addValidMoves(myDataTree);
+        addMovesNester(myDataTree);
+
+        //myDataTree.printAllRootsToLeafPaths(myDataTree, new ArrayList<>());
+
+        //printSolution();
 
         //For testing our Tree's functions
         //treeTest(myDataTree);
@@ -37,6 +42,39 @@ public class Solver
         //For debugging
         //print2DArray(startValue, "Starting Array");
         //print2DArray(stepValue, "Stepping Array");
+    }
+
+    protected static void addMovesNester(Tree startingRoot)
+    {
+        Tree myData = startingRoot;
+
+        addValidMoves(myData);
+        for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
+        {
+            myData = startingRoot.getRoot(levelOne);
+            addValidMoves(myData);
+        }
+
+        for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
+        {
+            myData = startingRoot.getRoot(levelOne);
+            for(int levelTwo = 0; levelTwo < myData.numberOfRoots; levelTwo++)
+            {
+                addValidMoves(myData);
+            }
+        }
+
+        for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
+        {
+            myData = startingRoot.getRoot(levelOne);
+            for(int levelTwo = 0; levelTwo < myData.numberOfRoots; levelTwo++)
+            {
+                for(int levelThree = 0; levelThree < myData.numberOfRoots; levelThree++)
+                {
+                    addValidMoves(myData);
+                }
+            }
+        }
     }
 
     //Our tree tests
@@ -202,18 +240,18 @@ public class Solver
         startValue[0][3] = "W";
 
         startValue[1][0] = "W";
-        startValue[1][1] = "W";
+        startValue[1][1] = "B";
         startValue[1][2] = "W";
         startValue[1][3] = "W";
 
-        startValue[2][0] = "W";
+        startValue[2][0] = "B";
         startValue[2][1] = "W";
         startValue[2][2] = "W";
         startValue[2][3] = "W";
 
         startValue[3][0] = "W";
         startValue[3][1] = "W";
-        startValue[3][2] = "W";
+        startValue[3][2] = "B";
         startValue[3][3] = "W";
     }
 
