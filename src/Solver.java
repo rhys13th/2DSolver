@@ -1,4 +1,5 @@
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Solver
@@ -9,6 +10,7 @@ public class Solver
     protected static String[][] endValue = new String[4][4];
     protected static String[][] stepValue = new String[4][4];
     protected static Tree myDataTree;
+    protected static ArrayList solutionPath = new ArrayList();
     
     public static void main(String[] args)
     {
@@ -75,6 +77,7 @@ public class Solver
                 }
             }
         }
+
     }
 
     //Our tree tests
@@ -151,6 +154,7 @@ public class Solver
 
     //Adds all the valid moves given a tree's current node
     //A move is considered valid if it is unique, AKA it hasn't been made anywhere else before
+    //TODO Comment this and finish this
     protected static void addValidMoves(Tree currentStep)
     {
         //First thing we do is re-write our step value to the current root's data
@@ -195,10 +199,56 @@ public class Solver
         }
     }
 
-    //TODO: Implement this
+    //TODO Comment this
     protected static void printSolution()
     {
+        for(int i=0; i < solutionPath.size(); i++)
+        {
+            System.out.print(solutionPath.get(i).toString());
+        }
+        System.out.println("\n");
+    }
 
+    //TODO Comment this
+    public void printAllRootsToLeafPaths(Tree myData, ArrayList<Tree> path)
+    {
+        if(myData.getMyValue() != null)
+        {
+            path.add(myData);
+            if(myData.numberOfRoots > 0)
+            {
+                for(int i = 0; i < myData.numberOfRoots; i++)
+                {
+                    printAllRootsToLeafPaths(myData.getRoot(i), path);
+                }
+            }
+            else if(arrayComparison(myData.getMyValue(), endValue) && path.size() < solutionPath.size())
+            {
+                solutionPath = new ArrayList<>(path);
+            }
+            path.remove(myData);
+        }
+    }
+
+    //Returns true if the two arrays passed OF THE SAME SIZE are identical
+    protected boolean arrayComparison(String[][] arrayOne, String[][] arrayTwo)
+    {
+        //Starting at the first row, until the end of it
+        for (int i = 0; i < arrayOne.length; i++)
+        {
+            //For every single column in there
+            for (int j = 0; j < arrayOne[i].length; j++)
+            {
+                //If any of the values do NOT match, ignoring case
+                if(!arrayTwo[i][j].equalsIgnoreCase(arrayOne[i][j]))
+                {
+                    //Then they're not identical arrays
+                    return false;
+                }
+            }
+        }
+        //If all the values matched (the return false was never reached) obviousdly they're the same array
+        return true;
     }
 
     //Expanded tester of queue function & its exceptions
@@ -232,6 +282,7 @@ public class Solver
         System.out.println(myQueue.remove(0));
     }
 
+    //TODO Comment this
     private static void setStart()
     {
         startValue[0][0] = "B";
@@ -255,6 +306,7 @@ public class Solver
         startValue[3][3] = "W";
     }
 
+    //TODO Comment this
     private static void setEnd()
     {
         endValue[0][0] = "W";
@@ -278,6 +330,7 @@ public class Solver
         endValue[3][3] = "W";
     }
 
+    //TODO Comment this
     private static void getStart()
     {
         Scanner myReader = new Scanner(System.in);
@@ -292,6 +345,7 @@ public class Solver
         }
     }
 
+    //TODO Comment this
     private static void getEnd()
     {
         Scanner myReader = new Scanner(System.in);
@@ -306,6 +360,7 @@ public class Solver
         }
     }
 
+    //TODO Comment this
     private static String[] getInput(Scanner myReader, int myLine, boolean isStart)
     {
         String startOrEnd;
@@ -331,6 +386,7 @@ public class Solver
         return tempVal;
     }
 
+    //TODO Comment this
     protected static void copyArrayOfSameSize(String[][] arrayOne, String[][] arrayTwo)
     {
         for(int i = 0; i < arrayOne.length; i++)
@@ -342,6 +398,7 @@ public class Solver
         }
     }
 
+    //TODO Comment this
     private static void print2DArray(String[][] myArray, String name)
     {
         String retVal = "";

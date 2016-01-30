@@ -30,6 +30,8 @@ import java.util.List;
  *          protected boolean arrayComparison(args)
  *              Takes two 2D String Arrays, and checks if the values in every cell are identical. Ignores case,
  *              assumes both arrays are of the same size.
+ *
+*           TODO: Finish this
  */
 
 public class Tree
@@ -166,6 +168,7 @@ public class Tree
         return myRoots.get(index);
     }
 
+    //TODO Comment this
     public String[][] getMyValue()
     {
         String[][] retVal = new String[4][4];
@@ -173,11 +176,13 @@ public class Tree
         return retVal;
     }
 
+    //TODO Comment this
     public void setMyValue(String[][] newData)
     {
         copyArrayOfSameSize(newData, myValue);
     }
 
+    //TODO Comment this
     public void printAllRootsToLeafPaths(Tree myData, ArrayList<Tree> path)
     {
         if(myData.getMyValue() != null)
