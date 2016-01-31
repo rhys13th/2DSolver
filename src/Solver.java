@@ -31,6 +31,8 @@ public class Solver
 
         addMovesNester(myDataTree);
 
+        i
+
         //myDataTree.printAllRootsToLeafPaths(myDataTree, new ArrayList<>());
 
         //printSolution();
@@ -51,6 +53,7 @@ public class Solver
         Tree myData = startingRoot;
 
         addValidMoves(myData);
+
         for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
         {
             myData = startingRoot.getRoot(levelOne);
@@ -62,6 +65,7 @@ public class Solver
             myData = startingRoot.getRoot(levelOne);
             for(int levelTwo = 0; levelTwo < myData.numberOfRoots; levelTwo++)
             {
+                myData = startingRoot.getRoot(levelTwo);
                 addValidMoves(myData);
             }
         }
@@ -71,8 +75,10 @@ public class Solver
             myData = startingRoot.getRoot(levelOne);
             for(int levelTwo = 0; levelTwo < myData.numberOfRoots; levelTwo++)
             {
+                myData = startingRoot.getRoot(levelTwo);
                 for(int levelThree = 0; levelThree < myData.numberOfRoots; levelThree++)
                 {
+                    myData = startingRoot.getRoot(levelThree);
                     addValidMoves(myData);
                 }
             }
