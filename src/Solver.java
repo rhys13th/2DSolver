@@ -14,7 +14,6 @@ public class Solver
     
     public static void main(String[] args)
     {
-
         //To prompt the user for the start and end
         //getStart();
         //getEnd();
@@ -31,7 +30,9 @@ public class Solver
 
         addMovesNester(myDataTree);
 
-        i
+        getSolutionPath(myDataTree, new ArrayList<>());
+
+        printSolution();
 
         //myDataTree.printAllRootsToLeafPaths(myDataTree, new ArrayList<>());
 
@@ -52,14 +53,17 @@ public class Solver
     {
         Tree myData = startingRoot;
 
+        //Level 0
         addValidMoves(myData);
 
+        //Level 1
         for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
         {
             myData = startingRoot.getRoot(levelOne);
             addValidMoves(myData);
         }
 
+        //Level 2
         for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
         {
             myData = startingRoot.getRoot(levelOne);
@@ -70,6 +74,7 @@ public class Solver
             }
         }
 
+        //Level 3
         for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
         {
             myData = startingRoot.getRoot(levelOne);
@@ -160,7 +165,6 @@ public class Solver
 
     //Adds all the valid moves given a tree's current node
     //A move is considered valid if it is unique, AKA it hasn't been made anywhere else before
-    //TODO Comment this and finish this
     protected static void addValidMoves(Tree currentStep)
     {
         //First thing we do is re-write our step value to the current root's data
@@ -211,12 +215,13 @@ public class Solver
         for(int i=0; i < solutionPath.size(); i++)
         {
             System.out.print(solutionPath.get(i).toString());
+            System.out.println("\n");
         }
         System.out.println("\n");
     }
 
     //TODO Comment this
-    public void printAllRootsToLeafPaths(Tree myData, ArrayList<Tree> path)
+    protected static void getSolutionPath(Tree myData, ArrayList<Tree> path)
     {
         if(myData.getMyValue() != null)
         {
@@ -225,10 +230,10 @@ public class Solver
             {
                 for(int i = 0; i < myData.numberOfRoots; i++)
                 {
-                    printAllRootsToLeafPaths(myData.getRoot(i), path);
+                    getSolutionPath(myData.getRoot(i), path);
                 }
             }
-            else if(arrayComparison(myData.getMyValue(), endValue) && path.size() < solutionPath.size())
+            else if(arrayComparison(myData.getMyValue(), endValue))
             {
                 solutionPath = new ArrayList<>(path);
             }
@@ -237,7 +242,7 @@ public class Solver
     }
 
     //Returns true if the two arrays passed OF THE SAME SIZE are identical
-    protected boolean arrayComparison(String[][] arrayOne, String[][] arrayTwo)
+    protected static boolean arrayComparison(String[][] arrayOne, String[][] arrayTwo)
     {
         //Starting at the first row, until the end of it
         for (int i = 0; i < arrayOne.length; i++)
@@ -297,18 +302,18 @@ public class Solver
         startValue[0][3] = "W";
 
         startValue[1][0] = "W";
-        startValue[1][1] = "B";
+        startValue[1][1] = "W";
         startValue[1][2] = "W";
         startValue[1][3] = "W";
 
-        startValue[2][0] = "B";
+        startValue[2][0] = "W";
         startValue[2][1] = "W";
         startValue[2][2] = "W";
         startValue[2][3] = "W";
 
         startValue[3][0] = "W";
         startValue[3][1] = "W";
-        startValue[3][2] = "B";
+        startValue[3][2] = "W";
         startValue[3][3] = "W";
     }
 
