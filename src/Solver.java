@@ -10,7 +10,7 @@ public class Solver
     protected static String[][] endValue = new String[4][4];
     protected static String[][] stepValue = new String[4][4];
     protected static Tree myDataTree;
-    protected static ArrayList solutionPath = new ArrayList();
+    protected static ArrayList<Tree> solutionPath = new ArrayList<>();
     
     public static void main(String[] args)
     {
@@ -28,15 +28,21 @@ public class Solver
         //Initializing our data tree
         myDataTree = new Tree(startValue);
 
-        addMovesNester(myDataTree);
+        //This is how we add the valid moves. It should be replaced by a recursive implementation
+        //addMovesNester(myDataTree);
 
+        //This is our recursive version of addMovesNester. It adds all valid moves to the entire tree
+        recursivePathGenerator(myDataTree);
+
+        //Since getSolutionPath wants to find the shortest solution, we want to have the ability to compare what
+        //was the shortest path so far. Therefore, we 'reset' the size to 16 each time.
+        resetSolutionPath();
+
+        //This is how we find the solution path, AKA where it exists in the tree. It is a recursive implementation
         getSolutionPath(myDataTree, new ArrayList<>());
 
+        //This is pretty basic, it just prints the solution path we found
         printSolution();
-
-        //myDataTree.printAllRootsToLeafPaths(myDataTree, new ArrayList<>());
-
-        //printSolution();
 
         //For testing our Tree's functions
         //treeTest(myDataTree);
@@ -47,6 +53,17 @@ public class Solver
         //For debugging
         //print2DArray(startValue, "Starting Array");
         //print2DArray(stepValue, "Stepping Array");
+    }
+
+    //TODO: Comment this
+    private static void resetSolutionPath()
+    {
+        solutionPath = new ArrayList<>();
+        String[][] tempArray = new String[1][1];
+        for(int i = 0; i < 16; i++)
+        {
+            solutionPath.add(new Tree(tempArray));
+        }
     }
 
     protected static void addMovesNester(Tree startingRoot)
@@ -89,6 +106,32 @@ public class Solver
             }
         }
 
+        //Level 4
+
+        //Level 5
+
+        //Level 6
+
+        //Level 7
+
+        //Level 8
+
+        //Level 9
+
+        //Level 10
+
+        //Level 11
+
+        //Level 12
+
+        //Level 13
+
+        //Level 14
+
+        //Level 15
+
+        //Level 16
+
     }
 
     //Our tree tests
@@ -130,6 +173,9 @@ public class Solver
         //Testing our recursiveSearch
         System.out.println(testTree.recursiveContains(startValue));
         System.out.println(testTree.recursiveContains(endValue));
+
+        //A test of printing all the paths in the tree
+        testTree.printAllRootsToLeafPaths(testTree, new ArrayList<>());
     }
 
     //Our rotation for a row. It doesn't matter if you rotate right or left, as long as there's no additional
@@ -214,10 +260,24 @@ public class Solver
     {
         for(int i=0; i < solutionPath.size(); i++)
         {
+            System.out.println("Move #" + i);
             System.out.print(solutionPath.get(i).toString());
             System.out.println("\n");
         }
         System.out.println("\n");
+    }
+
+
+    protected static void recursivePathGenerator(Tree myData)
+    {
+        addValidMoves(myData);
+        if(myData.numberOfRoots > 0)
+        {
+            for(int i = 0; i < myData.numberOfRoots; i++)
+            {
+                recursivePathGenerator(myData.getRoot(i));
+            }
+        }
     }
 
     //TODO Comment this
@@ -233,7 +293,7 @@ public class Solver
                     getSolutionPath(myData.getRoot(i), path);
                 }
             }
-            else if(arrayComparison(myData.getMyValue(), endValue))
+            else if(arrayComparison(myData.getMyValue(), endValue) && path.size() <= solutionPath.size())
             {
                 solutionPath = new ArrayList<>(path);
             }
@@ -323,7 +383,7 @@ public class Solver
         endValue[0][0] = "W";
         endValue[0][1] = "W";
         endValue[0][2] = "W";
-        endValue[0][3] = "B";
+        endValue[0][3] = "W";
 
         endValue[1][0] = "W";
         endValue[1][1] = "W";
@@ -338,7 +398,7 @@ public class Solver
         endValue[3][0] = "W";
         endValue[3][1] = "W";
         endValue[3][2] = "W";
-        endValue[3][3] = "W";
+        endValue[3][3] = "B";
     }
 
     //TODO Comment this
