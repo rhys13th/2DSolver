@@ -11,6 +11,7 @@ public class Solver
     protected static String[][] stepValue = new String[4][4];
     protected static Tree myDataTree;
     protected static ArrayList<Tree> solutionPath = new ArrayList<>();
+    private static int depth = 0;
     
     public static void main(String[] args)
     {
@@ -224,7 +225,7 @@ public class Solver
                 //We rotate the column
                 rotateColumnOnceDown(stepValue, i);
                 //And if it doesn't exist yet in the entire data tree, it's a valid move
-                if(!myDataTree.recursiveContains(stepValue))
+                //if(!myDataTree.recursiveContains(stepValue))
                 {
                     //So we add it
                     currentStep.add(stepValue);
@@ -244,7 +245,7 @@ public class Solver
                 //Only this time we rotate the rows, instead of columns
                 rotateRowOnceRight(stepValue, i);
                 //Again, we only add unique values
-                if(!myDataTree.recursiveContains(stepValue))
+                //if(!myDataTree.recursiveContains(stepValue))
                 {
                     //Adding it to the tree
                     currentStep.add(stepValue);
@@ -271,12 +272,17 @@ public class Solver
     protected static void recursivePathGenerator(Tree myData)
     {
         addValidMoves(myData);
-        if(myData.numberOfRoots > 0)
+        if(myData.numberOfRoots > 0 && depth <= 16)
         {
             for(int i = 0; i < myData.numberOfRoots; i++)
             {
+                depth++;
                 recursivePathGenerator(myData.getRoot(i));
             }
+        }
+        else
+        {
+            depth--;
         }
     }
 

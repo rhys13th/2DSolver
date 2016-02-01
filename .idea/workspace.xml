@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bf4e093-0432-4d9b-bd71-ed6a2e876178" name="Default" comment="Solver.java&#10;&#10;* Expanded existing functionality&#10;* Added recursive filler for the tree, needs to be limited&#10;* Declared current solution incomplete">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2DSolver" afterPath="$PROJECT_DIR$/2DSolver" />
+    <list default="true" id="0bf4e093-0432-4d9b-bd71-ed6a2e876178" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Rubick Solver/Solver.class" afterPath="$PROJECT_DIR$/out/production/2D Rubick Solver/Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2D Rubick Solver/Tree.class" afterPath="$PROJECT_DIR$/out/production/2D Rubick Solver/Tree.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Solver.java" afterPath="$PROJECT_DIR$/src/Solver.java" />
     </list>
@@ -31,15 +29,15 @@
       <file leaf-file-name="Solver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Solver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5302144">
-              <caret line="226" column="60" selection-start-line="226" selection-start-column="60" selection-end-line="226" selection-end-column="60" />
+            <state vertical-scroll-proportion="2.5797665">
+              <caret line="247" column="18" selection-start-line="247" selection-start-column="18" selection-end-line="247" selection-end-column="18" />
               <folding>
+                <element signature="method#main#0;class#Solver#0" expanded="false" />
                 <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
                 <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
                 <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
                 <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
                 <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-                <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
                 <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
                 <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
                 <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -551,21 +549,27 @@
       <option name="project" value="LOCAL" />
       <updated>1454222709128</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Solver.java&#10;&#10;* Expanded existing functionality&#10;* Added recursive filler for the tree, needs to be limited&#10;* Declared current solution incomplete">
+      <created>1454350892940</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1454350892940</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998747" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1575" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -633,12 +637,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -692,12 +696,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -751,12 +755,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -797,12 +801,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -843,12 +847,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -889,12 +893,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -935,12 +939,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -994,12 +998,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -1053,12 +1057,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -1112,12 +1116,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -1150,12 +1154,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -1188,12 +1192,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -1226,12 +1230,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -1264,12 +1268,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
@@ -1355,15 +1359,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Solver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5302144">
-          <caret line="226" column="60" selection-start-line="226" selection-start-column="60" selection-end-line="226" selection-end-column="60" />
+        <state vertical-scroll-proportion="2.5797665">
+          <caret line="247" column="18" selection-start-line="247" selection-start-column="18" selection-end-line="247" selection-end-column="18" />
           <folding>
+            <element signature="method#main#0;class#Solver#0" expanded="false" />
             <element signature="method#addMovesNester#0;class#Solver#0" expanded="false" />
             <element signature="method#treeTest#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateRowOnceRight#0;class#Solver#0" expanded="false" />
             <element signature="method#rotateColumnOnceDown#0;class#Solver#0" expanded="false" />
             <element signature="method#printSolution#0;class#Solver#0" expanded="false" />
-            <element signature="method#recursivePathGenerator#0;class#Solver#0" expanded="false" />
             <element signature="method#getSolutionPath#0;class#Solver#0" expanded="false" />
             <element signature="method#arrayComparison#0;class#Solver#0" expanded="false" />
             <element signature="method#queueTest#0;class#Solver#0" expanded="false" />
