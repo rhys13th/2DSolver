@@ -12,6 +12,7 @@ public class Solver
     protected static Tree myDataTree;
     protected static ArrayList<Tree> solutionPath = new ArrayList<>();
     private static int depth = 0;
+    private static int depthLimit = 16;
     
     public static void main(String[] args)
     {
@@ -30,10 +31,10 @@ public class Solver
         myDataTree = new Tree(startValue);
 
         //This is how we add the valid moves. It should be replaced by a recursive implementation
-        //addMovesNester(myDataTree);
+        addMovesNester(myDataTree);
 
         //This is our recursive version of addMovesNester. It adds all valid moves to the entire tree
-        recursivePathGenerator(myDataTree);
+        //recursivePathGenerator(myDataTree);
 
         //Since getSolutionPath wants to find the shortest solution, we want to have the ability to compare what
         //was the shortest path so far. Therefore, we 'reset' the size to 16 each time.
@@ -41,6 +42,8 @@ public class Solver
 
         //This is how we find the solution path, AKA where it exists in the tree. It is a recursive implementation
         getSolutionPath(myDataTree, new ArrayList<>());
+
+        //myDataTree.printAllRootsToLeafPaths(myDataTree, new ArrayList<>());
 
         //This is pretty basic, it just prints the solution path we found
         printSolution();
@@ -84,10 +87,9 @@ public class Solver
         //Level 2
         for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
         {
-            myData = startingRoot.getRoot(levelOne);
             for(int levelTwo = 0; levelTwo < myData.numberOfRoots; levelTwo++)
             {
-                myData = startingRoot.getRoot(levelTwo);
+                myData = startingRoot.getRoot(levelOne).getRoot(levelTwo);
                 addValidMoves(myData);
             }
         }
@@ -95,19 +97,33 @@ public class Solver
         //Level 3
         for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
         {
-            myData = startingRoot.getRoot(levelOne);
             for(int levelTwo = 0; levelTwo < myData.numberOfRoots; levelTwo++)
             {
-                myData = startingRoot.getRoot(levelTwo);
                 for(int levelThree = 0; levelThree < myData.numberOfRoots; levelThree++)
                 {
-                    myData = startingRoot.getRoot(levelThree);
+                    myData = startingRoot.getRoot(levelOne).getRoot(levelTwo).getRoot(levelThree);
                     addValidMoves(myData);
                 }
             }
         }
 
         //Level 4
+
+        for(int levelOne = 0; levelOne < myData.numberOfRoots; levelOne++)
+        {
+            for(int levelTwo = 0; levelTwo < myData.numberOfRoots; levelTwo++)
+            {
+                for(int levelThree = 0; levelThree < myData.numberOfRoots; levelThree++)
+                {
+                    for(int levelFour = 0; levelFour < myData.numberOfRoots; levelFour++)
+                    {
+                        myData = startingRoot.getRoot(levelOne).getRoot(levelTwo).getRoot(levelThree).getRoot(levelFour);
+                        addValidMoves(myData);
+                    }
+                }
+            }
+        }
+
 
         //Level 5
 
@@ -220,7 +236,7 @@ public class Solver
         for(int i = 0; i < 4; i++)
         {
             //We do this 3 times, returning stepValue to its original state at the end of the loop
-            for(int j = 1; j < 4; j++)
+            for(int j = 0; j < 3; j++)
             {
                 //We rotate the column
                 rotateColumnOnceDown(stepValue, i);
@@ -240,7 +256,7 @@ public class Solver
         for(int i = 0; i < 4; i++)
         {
             //So we just do the same thing as before
-            for(int j = 1; j < 4; j++)
+            for(int j = 0; j < 3; j++)
             {
                 //Only this time we rotate the rows, instead of columns
                 rotateRowOnceRight(stepValue, i);
@@ -259,24 +275,33 @@ public class Solver
     //TODO Comment this
     protected static void printSolution()
     {
-        for(int i=0; i < solutionPath.size(); i++)
+        String[][] tempArray = new String[1][1];
+        if(solutionPath.get(0).getMyValue()[0][0] == null)
         {
-            System.out.println("Move #" + i);
-            System.out.print(solutionPath.get(i).toString());
+            System.out.println("No solution found.");
+        }
+
+        else
+        {
+            for(int i=0; i < solutionPath.size(); i++)
+            {
+                System.out.println("Move #" + i);
+                System.out.print(solutionPath.get(i).toString());
+                System.out.println("\n");
+            }
             System.out.println("\n");
         }
-        System.out.println("\n");
     }
 
 
     protected static void recursivePathGenerator(Tree myData)
     {
         addValidMoves(myData);
-        if(myData.numberOfRoots > 0 && depth <= 16)
+        if(myData.numberOfRoots > 0 && depth < depthLimit)
         {
+            depth++;
             for(int i = 0; i < myData.numberOfRoots; i++)
             {
-                depth++;
                 recursivePathGenerator(myData.getRoot(i));
             }
         }
@@ -362,20 +387,20 @@ public class Solver
     //TODO Comment this
     private static void setStart()
     {
-        startValue[0][0] = "B";
+        startValue[0][0] = "W";
         startValue[0][1] = "W";
         startValue[0][2] = "W";
-        startValue[0][3] = "W";
+        startValue[0][3] = "B";
 
         startValue[1][0] = "W";
         startValue[1][1] = "W";
         startValue[1][2] = "W";
-        startValue[1][3] = "W";
+        startValue[1][3] = "B";
 
         startValue[2][0] = "W";
-        startValue[2][1] = "W";
+        startValue[2][1] = "B";
         startValue[2][2] = "W";
-        startValue[2][3] = "W";
+        startValue[2][3] = "B";
 
         startValue[3][0] = "W";
         startValue[3][1] = "W";
@@ -383,28 +408,30 @@ public class Solver
         startValue[3][3] = "W";
     }
 
+    //P = W, Y = B
+
     //TODO Comment this
     private static void setEnd()
     {
-        endValue[0][0] = "W";
-        endValue[0][1] = "W";
+        endValue[0][0] = "B";
+        endValue[0][1] = "B";
         endValue[0][2] = "W";
         endValue[0][3] = "W";
 
-        endValue[1][0] = "W";
+        endValue[1][0] = "B";
         endValue[1][1] = "W";
-        endValue[1][2] = "W";
+        endValue[1][2] = "B";
         endValue[1][3] = "W";
 
         endValue[2][0] = "W";
         endValue[2][1] = "W";
         endValue[2][2] = "W";
-        endValue[2][3] = "W";
+        endValue[2][3] = "B";
 
-        endValue[3][0] = "W";
-        endValue[3][1] = "W";
-        endValue[3][2] = "W";
-        endValue[3][3] = "B";
+        endValue[3][0] = "B";
+        endValue[3][1] = "B";
+        endValue[3][2] = "B";
+        endValue[3][3] = "W";
     }
 
     //TODO Comment this
